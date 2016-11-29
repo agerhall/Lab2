@@ -16,7 +16,8 @@ public class Line extends GeometricalObject{
 	 * @throws IllegalPositionException
 	 */
 	 public Line(int x1, int y1, int x2, int y2, Color c) throws IllegalPositionException{
-		 
+		 super(x1,y1,Math.abs(x1-x2),Math.abs(y1-y2),c);
+		 inclineIsPositive= 0<(x1-x2)*(y1-y2);
 	 }
 	 /**
 	  * 
@@ -25,6 +26,8 @@ public class Line extends GeometricalObject{
 	  * @param c color of the line
 	  */
 	 public Line(GeometricalForm f1, GeometricalForm f2, Color c){
+		 super(f1,Math.abs(f1.getX()-f2.getX()),Math.abs(f1.getY()-f2.getY()),c);
+		 inclineIsPositive= 0<(f1.getX()-f2.getX())*(f1.getY()-f2.getY());
 		 
 	 }
 	
@@ -33,6 +36,7 @@ public class Line extends GeometricalObject{
      * The area of a line is 0
      */
 	   public int getArea(){
+		   return 0;
 		   
 	   }
 
@@ -42,6 +46,8 @@ public class Line extends GeometricalObject{
 	     * {@inheritDoc}
 	     */
 	   public void fill( Graphics g ){
+		   g.setColor(super.getColor());
+		   g.drawLine(super.getX(),super.getY(),super.getX()+super.getWidth(),super.getY()+super.getHeight());
 		   
 	   }
 
@@ -51,6 +57,7 @@ public class Line extends GeometricalObject{
 	     * The perimeter of a line is the distance between the endpoints. 
 	     */
 	   public int getPerimeter(){
+		   return (int) Math.round(Math.sqrt(super.getWidth()*super.getWidth()+super.getHeight()*super.getHeight()));
 		   
 	   }
 
@@ -63,10 +70,18 @@ public class Line extends GeometricalObject{
 	     */
 	   
 	   public boolean equals(Object o){
+		   return super.equals(o) && this.inclineIsPositive==((Line) o).inclineIsPositive;
 		   
 	   }
 	  
 	   public int hashCode(){
+		   int a;
+		   if(this.inclineIsPositive){
+			   a=1;
+		   }else{
+			   a=-1;
+		   }
+		   return super.hashCode()*a;
 		   
 	   }
 }

@@ -14,6 +14,8 @@ public class Point extends GeometricalObject{
 	 */
 	public Point(int x, int y, Color c) throws IllegalPositionException{
 		
+		super(x,y,2,2,c);
+		
 	}
 	
 	/**
@@ -22,6 +24,7 @@ public class Point extends GeometricalObject{
 	 * @param c color of the point
 	 */
 	public Point(GeometricalForm f, Color c){
+		super(f,2,2,c);
 		
 	}
 	
@@ -30,6 +33,8 @@ public class Point extends GeometricalObject{
      * {@inheritDoc}
      */
     public  void fill(Graphics g){
+    	g.setColor(super.getColor());
+    	g.fillOval(super.getX(), super.getY(), super.getWidth(), super.getHeight());
     	
     }
     
@@ -40,6 +45,7 @@ public class Point extends GeometricalObject{
      * The area of a piont is zero
      */
     public int getArea(){
+    	return 0;
     	
     }
     
@@ -49,14 +55,10 @@ public class Point extends GeometricalObject{
      * The perimeter of a piont is zero
      */
     public int getPerimeter(){
-    	
+    	return 0;
     }
     
    
-    /**
-     * {@inheritDoc}
-     * A point is equal to another point if they are located at the same position and have the same color.
-     */
-    
+   
    
 }

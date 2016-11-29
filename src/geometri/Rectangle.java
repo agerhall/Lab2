@@ -16,6 +16,8 @@ public class Rectangle extends GeometricalObject{
 	 */
 
 	public Rectangle(int x, int y, int width, int height, Color c) throws IllegalPositionException{
+		
+		super(x,y,width,height,c);
 
 	}
 	
@@ -27,6 +29,7 @@ public class Rectangle extends GeometricalObject{
 	 * @param c color of the rectangle
 	 */
 	public Rectangle(GeometricalForm f, int width, int height, Color c){
+		super(f,width,height,c);
 
 	}
 	
@@ -35,6 +38,8 @@ public class Rectangle extends GeometricalObject{
      */
 
 	public void fill(Graphics g){
+		g.setColor(super.getColor());
+		g.drawRect(super.getX(), super.getY(), super.getWidth(), super.getHeight());
 
 	}
 
@@ -45,6 +50,7 @@ public class Rectangle extends GeometricalObject{
 
 
 	public  int getArea(){
+		return super.getWidth()*super.getHeight();
 
 	}
 	
@@ -54,6 +60,7 @@ public class Rectangle extends GeometricalObject{
 
 
 	public  int getPerimeter(){
+		return 2*(super.getWidth()+super.getHeight());
 
 	}
 	

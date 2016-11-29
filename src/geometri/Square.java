@@ -14,6 +14,7 @@ public class Square extends Rectangle{
 	 * @throws IllegalPositionException
 	 */
 	public Square(int x, int y, int side, Color c) throws IllegalPositionException{
+		super(x,y,side,side,c);
 		
 	}
 	/**
@@ -23,14 +24,11 @@ public class Square extends Rectangle{
 	 * @param c color of the square
 	 */
 	public Square(GeometricalForm f, int side, Color c){
+		super(f,side,side,c);
 		
 	}
-	/**
-     * {@inheritDoc}
-     */
-	 public void fill(Graphics g){
-	    	
-	    }
+	
+	 
 	    
 	   
 	    
