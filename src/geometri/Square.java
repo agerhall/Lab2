@@ -34,28 +34,6 @@ public class Square extends Rectangle{
 	    
 	   
 	    
-	    /**
-	     * {@inheritDoc}
-	     */
-	    public int getArea(){
-	    	
-	    }
-	    
-	    
-	    
-	    /**
-	     * {@inheritDoc}
-	     */
-	    public int getPerimeter(){
-	    	
-	    }
-	    
-	 
-	    /**
-	     * An oval is equal to another oval if they have the same side length and color.
-	     * {@inheritDoc}
-	     * 
-	     */
 	    
 	  
 }

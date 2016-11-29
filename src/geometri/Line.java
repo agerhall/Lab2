@@ -4,6 +4,7 @@ import java.awt.Color;
 import java.awt.Graphics;
 
 public class Line extends GeometricalObject{
+	private boolean inclineIsPositive; // true if y1<y2
 	
 	/**
 	 * 
@@ -56,7 +57,7 @@ public class Line extends GeometricalObject{
 	   
 	   /**
 	     * A line is equal to another line if they have the same perimeter 
-	     * and the same angle from the horizontal line.
+	     * and the same incline
 	     * {@inheritDoc}
 	     * 
 	     */

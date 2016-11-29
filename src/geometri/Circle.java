@@ -35,21 +35,7 @@ public class Circle extends Oval{
 
 	}
 
-	/**
-	 * {@inheritDoc}
-	 */
-	public int getArea(){
-
-	}
-
-
-	/**
-	 * {@inheritDoc}
-	 */
-	public int getPerimeter(){
-
-	}
-
+	
 	
 
 }
