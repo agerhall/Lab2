@@ -17,8 +17,8 @@ public class Line extends GeometricalObject{
 	 * @throws IllegalPositionException
 	 */
 	 public Line(int x1, int y1, int x2, int y2, Color c) throws IllegalPositionException{
-		 super(Math.min(x1, x2), Math.max(y1, y2), Math.abs(x1-x2), Math.abs(y1-y2), c);
-		 inclineIsPositive= 0<(x1-x2)*(y1-y2);
+		 super(Math.min(x1, x2), Math.min(y1, y2), Math.abs(x1-x2), Math.abs(y1-y2), c);
+		 inclineIsPositive= 0<(x1-x2)*(y2-y1);
 	 }
 	 
 	 /**
@@ -30,8 +30,8 @@ public class Line extends GeometricalObject{
 	  */
 	 public Line(GeometricalForm f1, GeometricalForm f2, Color c) throws IllegalPositionException{
 		 super(f1, Math.abs(f1.getX()-f2.getX()), Math.abs(f1.getY()-f2.getY()) , c);
-		 place(Math.min(f1.getX(),f2.getX()), Math.max(f1.getY(),f2.getY()));
-		 inclineIsPositive= 0<(f1.getX()-f2.getX())*(f1.getY()-f2.getY());
+		 place(Math.min(f1.getX(),f2.getX()), Math.min(f1.getY(),f2.getY()));
+		 inclineIsPositive= 0<(f1.getX()-f2.getX())*(f2.getY()-f1.getY());
 		 
 	 }
 	
@@ -51,8 +51,10 @@ public class Line extends GeometricalObject{
 	     */
 	   public void fill( Graphics g ){
 		   g.setColor(super.getColor());
-		   g.drawLine(super.getX(),super.getY(),super.getX()+super.getWidth(),super.getY()+super.getHeight());
-		   
+		   if(inclineIsPositive){
+			   g.drawLine(super.getX(), super.getY()+super.getHeight(), super.getX()+super.getWidth(),super.getY());
+		   }
+		   else g.drawLine(super.getX(),super.getY(),super.getX()+super.getWidth(),super.getY()+super.getHeight());
 	   }
 
 
