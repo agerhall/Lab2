@@ -23,12 +23,14 @@ public class Line extends GeometricalObject{
 	 
 	 /**
 	  * 
-	  * @param f1 GeometricalForm for startpoint
-	  * @param f2 GeometricalForm for endpoint
+	  * @param f1 GeometricalForm for start point
+	  * @param f2 GeometricalForm for end point
 	  * @param c color of the line
+	  * @throws IllegalPositionException 
 	  */
-	 public Line(GeometricalForm f1, GeometricalForm f2, Color c){
-		 super(f1,Math.abs(f1.getX()-f2.getX()),Math.abs(f1.getY()-f2.getY()),c);
+	 public Line(GeometricalForm f1, GeometricalForm f2, Color c) throws IllegalPositionException{
+		 super(f1, Math.abs(f1.getX()-f2.getX()), Math.abs(f1.getY()-f2.getY()) , c);
+		 place(Math.min(f1.getX(),f2.getX()), Math.max(f1.getY(),f2.getY()));
 		 inclineIsPositive= 0<(f1.getX()-f2.getX())*(f1.getY()-f2.getY());
 		 
 	 }
