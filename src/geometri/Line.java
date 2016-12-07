@@ -6,6 +6,7 @@ import java.awt.Graphics;
 public class Line extends GeometricalObject{
 	private boolean inclineIsPositive; // true if y1<y2
 	
+	
 	/**
 	 * 
 	 * @param x1 horizontal position of the start point
@@ -16,9 +17,10 @@ public class Line extends GeometricalObject{
 	 * @throws IllegalPositionException
 	 */
 	 public Line(int x1, int y1, int x2, int y2, Color c) throws IllegalPositionException{
-		 super(x1,y1,Math.abs(x1-x2),Math.abs(y1-y2),c);
+		 super(Math.min(x1, x2), Math.max(y1, y2), Math.abs(x1-x2), Math.abs(y1-y2), c);
 		 inclineIsPositive= 0<(x1-x2)*(y1-y2);
 	 }
+	 
 	 /**
 	  * 
 	  * @param f1 GeometricalForm for startpoint
